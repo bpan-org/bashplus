@@ -147,11 +147,57 @@ A Collection of Useful Bash Functions
 \&    source "$PROJECT_ROOT/.bpan/lib/bpan.bash" \-\-
 \&    bpan:source bashplus
 \&
-\&    on\-mac && echo "I\*(Aqm on a Mac"
+\&    +on\-macos && echo "I\*(Aqm on a Mac"
 .Ve
 .SS "\s-1DESCRIPTION\s0"
 .IX Subsection "DESCRIPTION"
 The bashplus library defines dozens of useful Bash functions to make Bash programs much more readable.
+.SS "\s-1FUNCTIONS\s0"
+.IX Subsection "FUNCTIONS"
+.IP "\(bu" 4
+\&\f(CW\*(C`+can <name\*(C'\fR>
+.IP "\(bu" 4
+\&\f(CW\*(C`die <msg\*(C'\fR>
+.IP "\(bu" 4
+\&\f(CW\*(C`+is\-bash32+\*(C'\fR
+.IP "\(bu" 4
+\&\f(CW\*(C`+is\-bash40+\*(C'\fR
+.IP "\(bu" 4
+\&\f(CW\*(C`+is\-bash41+\*(C'\fR
+.IP "\(bu" 4
+\&\f(CW\*(C`+is\-bash42+\*(C'\fR
+.IP "\(bu" 4
+\&\f(CW\*(C`+is\-bash43+\*(C'\fR
+.IP "\(bu" 4
+\&\f(CW\*(C`+is\-bash44+\*(C'\fR
+.IP "\(bu" 4
+\&\f(CW\*(C`+is\-bash50+\*(C'\fR
+.IP "\(bu" 4
+\&\f(CW\*(C`+is\-bash51+\*(C'\fR
+.IP "\(bu" 4
+\&\f(CW\*(C`+is\-cmd <name\*(C'\fR>
+.IP "\(bu" 4
+\&\f(CW\*(C`+is\-cmd\-ver <name\*(C'\fR <version>>
+.IP "\(bu" 4
+\&\f(CW\*(C`+is\-file\-same <file1\*(C'\fR <file2>>
+.IP "\(bu" 4
+\&\f(CW\*(C`+is\-file\-diff <file1\*(C'\fR <file2>>
+.IP "\(bu" 4
+\&\f(CW\*(C`+is\-func <name\*(C'\fR>
+.IP "\(bu" 4
+\&\f(CW\*(C`+is\-online\*(C'\fR
+.IP "\(bu" 4
+\&\f(CW\*(C`+mktemp\*(C'\fR
+.IP "\(bu" 4
+\&\f(CW\*(C`+path\*(C'\fR
+.IP "\(bu" 4
+\&\f(CW\*(C`+sort\*(C'\fR
+.IP "\(bu" 4
+\&\f(CW\*(C`+sym [<prefix\*(C'\fR]>
+.IP "\(bu" 4
+\&\f(CW\*(C`+trap <bash\-code\*(C'\fR [<signal>]>
+.IP "\(bu" 4
+\&\f(CW\*(C`warn <msg\*(C'\fR>
 .SS "\s-1COPYRIGHT AND LICENSE\s0"
 .IX Subsection "COPYRIGHT AND LICENSE"
 Copyright 2022 by Ingy do\*:t Net

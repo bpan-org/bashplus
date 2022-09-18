@@ -10,7 +10,7 @@ A Collection of Useful Bash Functions
 source "$PROJECT_ROOT/.bpan/lib/bpan.bash" --
 bpan:source bashplus
 
-on-mac && echo "I'm on a Mac"
++on-macos && echo "I'm on a Mac"
 ```
 
 
@@ -18,6 +18,32 @@ on-mac && echo "I'm on a Mac"
 
 The bashplus library defines dozens of useful Bash functions to make Bash
 programs much more readable.
+
+
+## Functions
+
+* `+can <name>`
+* `die <msg>`
+* `+is-bash32+`
+* `+is-bash40+`
+* `+is-bash41+`
+* `+is-bash42+`
+* `+is-bash43+`
+* `+is-bash44+`
+* `+is-bash50+`
+* `+is-bash51+`
+* `+is-cmd <name>`
+* `+is-cmd-ver <name> <version>`
+* `+is-file-same <file1> <file2>`
+* `+is-file-diff <file1> <file2>`
+* `+is-func <name>`
+* `+is-online`
+* `+mktemp`
+* `+path`
+* `+sort`
+* `+sym [<prefix>]`
+* `+trap <bash-code> [<signal>]`
+* `warn <msg>`
 
 
 ## Copyright and License
