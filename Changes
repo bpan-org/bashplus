@@ -1,3 +1,7 @@
+[version "0.1.2"]
+date = Sun Sep 18 03:27:22 PM EDT 2022
+done = Make lib/bashplus.bash be not executable
+
 [version "0.1.1"]
 date = Sun Sep 18 03:09:15 PM EDT 2022
 done = Doc updates
