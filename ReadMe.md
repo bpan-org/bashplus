@@ -22,6 +22,10 @@ programs much more readable.
 
 ## Functions
 
+* `+assert-cmd <name>`
+* `+assert-cmd-ver <name> <version>`
+* `+assert-perl [<perl-version>]`
+* `+assert-sed [<sed-version>]`
 * `+can <name>`
 * `die <msg>`
 * `+is-bash32+`
