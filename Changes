@@ -1,3 +1,7 @@
+[version "0.1.1"]
+date = Sun Sep 18 03:09:15 PM EDT 2022
+done = Doc updates
+
 [version "0.1.0"]
 date = Sun Sep 18 02:38:19 PM EDT 2022
 done = Initial commit
