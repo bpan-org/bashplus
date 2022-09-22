@@ -1,3 +1,7 @@
+[version "0.1.6"]
+date = Thu Sep 22 09:46:16 AM EDT 2022
+done = Add +in-gha +version-gt +version-ge
+
 [version "0.1.5"]
 date = Mon Sep 19 10:17:29 AM EDT 2022
 done = Don't die in +is-cmd-ver
