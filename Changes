@@ -1,3 +1,7 @@
+[version "0.1.7"]
+date = Fri Sep 23 12:53:59 PM EDT 2022
+done = Refactor to new config schema
+
 [version "0.1.6"]
 date = Thu Sep 22 09:46:16 AM EDT 2022
 done = Add +in-gha +version-gt +version-ge
