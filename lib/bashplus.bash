@@ -82,6 +82,7 @@ bashplus:version() (
 
 # NOTE: BashPlus functions defined in name order.
 
+# Functions to redirect stdout and stderr.
 function +2:1 { "$@" 2>&1; }
 function +2:x { "$@" 2>/dev/null; }
 function +=:x { "$@" &>/dev/null; }
