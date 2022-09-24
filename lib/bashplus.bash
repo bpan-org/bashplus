@@ -82,6 +82,10 @@ bashplus:version() (
 
 # NOTE: BashPlus functions defined in name order.
 
+function +2:1 { "$@" 2>&1; }
+function +2:x { "$@" 2>/dev/null; }
+function +=:x { "$@" &>/dev/null; }
+
 +assert-cmd() ( +is-cmd "$@" ||
   +error "Command '$1' is required" )
 +assert-cmd-ver() ( +is-cmd-ver "$@" ||
