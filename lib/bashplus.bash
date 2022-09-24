@@ -23,6 +23,7 @@ bashplus:version() (
   #
   # NOTE: 'die' and 'warn' are the only bashplus function not starting with '+'
   die() {
+    set +x
     local arg args=() level=0 R='' Z=''
 
     for arg; do
