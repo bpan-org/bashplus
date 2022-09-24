@@ -87,6 +87,7 @@ function +2:1 { "$@" 2>&1; }
 function +2:x { "$@" 2>/dev/null; }
 function +=:x { "$@" &>/dev/null; }
 
+# Functions to assert that commands are available.
 +assert-cmd() ( +is-cmd "$@" ||
   +error "Command '$1' is required" )
 +assert-cmd-ver() ( +is-cmd-ver "$@" ||
