@@ -1,3 +1,7 @@
+[version "0.1.20"]
+date = Mon Sep 26 07:55:18 AM EDT 2022
+done = Fix bug in test
+
 [version "0.1.19"]
 date = Mon Sep 26 07:53:05 AM EDT 2022
 done = Add more possible +sym implementations
