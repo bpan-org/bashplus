@@ -1,3 +1,8 @@
+[version "0.1.19"]
+date = Mon Sep 26 07:53:05 AM EDT 2022
+done = Add more possible +sym implementations
+done = Remove .bpan/lib/bpan.bash
+
 [version "0.1.18"]
 date = Sun Sep 25 12:34:56 PM EDT 2022
 done = BPAN update
