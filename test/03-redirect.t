@@ -19,7 +19,7 @@ is "$got" "" \
 is "$x" bar \
   "+2:x preserves global variable assignment"
 
-is "$(+=:x eval 'echo out; echo err >&2')" "" \
-  "+=:x removes all output"
+is "$(+o:x eval 'echo out; echo err >&2' 2>&1)" "" \
+  "+o:x removes all output"
 
 done-testing
