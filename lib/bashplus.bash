@@ -45,7 +45,7 @@ bashplus:version() (
     [[ $# -gt 0 ]] || set -- Died
 
     echo -en "$R"
-    +warn "$@"
+    printf '%s\n' "$@" >&2
     echo -en "$Z"
 
     if [[ $# -ne 1 || $1 != *$'\n' ]]; then
@@ -119,7 +119,7 @@ bashplus:version() (
     return
 
   [[ $out =~ ([0-9]+\.[0-9]+(\.[0-9]+)?) ]] || {
-    +warn "Can't determine version number from '$command'"
+    echo "Can't determine version number from '$command'" >&2
     return 1
   }
 
