@@ -1,3 +1,7 @@
+[version "0.1.22"]
+date = Fri Sep 30 09:22:40 AM PDT 2022
+done = Don't use 'warn' internally
+
 [version "0.1.21"]
 date = Fri Sep 30 08:26:51 AM PDT 2022
 done = Add +is-empty function for files and dirs
