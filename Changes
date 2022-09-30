@@ -1,3 +1,9 @@
+[version "0.1.21"]
+date = Fri Sep 30 08:26:51 AM PDT 2022
+done = Add +is-empty function for files and dirs
+done = Change 'function x ...' to 'x() ...'
+done = Change '+warn' back to 'warn'
+
 [version "0.1.20"]
 date = Mon Sep 26 07:55:18 AM EDT 2022
 done = Fix bug in test
