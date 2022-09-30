@@ -140,6 +140,18 @@ bashplus:version() (
   ))
 )
 
+# Check if a file or directory is empty
++is-empty() (
+  path=${1?}
+  if [[ -f $path ]]; then
+    ! [[ -s $path ]]
+  elif [[ -d $path ]]; then
+    ! [[ $(shopt -s nullglob; printf '%s' *) ]]
+  else
+    die "'$path' is not a file or directory"
+  fi
+)
+
 # Check if 2 files are the same or different.
 +is-file-same() ( diff -q "$1" "$2" &>/dev/null )
 +is-file-diff() ( ! +is-file-same "$@" )
