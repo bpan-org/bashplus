@@ -1,3 +1,7 @@
+[version "0.1.23"]
+date = Fri Sep 30 12:56:05 PM PDT 2022
+done = Change 'update.template' to 'update.file' in config
+
 [version "0.1.22"]
 date = Fri Sep 30 09:22:40 AM PDT 2022
 done = Don't use 'warn' internally
