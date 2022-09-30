@@ -21,7 +21,8 @@ bashplus:version() (
   # * TODO --plain to not show line numbers
   # * TODO --stack for full stack trace
   #
-  # NOTE: 'die' id the only bashplus function not starting with '+'.
+  # NOTE: 'die' and 'warn' are the only bashplus functions not starting with
+  # a '+' character.
 
   die() {
     set +x
@@ -60,7 +61,7 @@ bashplus:version() (
     exit 1
   }
 
-  +warn() {
+  warn() {
     printf '%s\n' "$@" >&2
   }
 
