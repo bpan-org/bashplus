@@ -85,10 +85,10 @@ bashplus:version() (
 # NOTE: BashPlus functions defined in name order.
 
 # Functions to redirect stdout and stderr.
-function +1:x { "$@" 1>/dev/null; }
-function +2:1 { "$@" 2>&1; }
-function +2:x { "$@" 2>/dev/null; }
-function +o:x { "$@" &>/dev/null; }
++1:x() { "$@" 1>/dev/null; }
++2:1() { "$@" 2>&1;        }
++2:x() { "$@" 2>/dev/null; }
++o:x() { "$@" &>/dev/null; }
 
 # Functions to assert that commands are available.
 +assert-cmd() ( +is-cmd "$@" ||
