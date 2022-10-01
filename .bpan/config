@@ -1,1 +1,37 @@
-../Meta
+[bpan]
+api-version = 1
+
+[package]
+name = bashplus
+version = 0.1.24
+title = A Collection of Useful Bash Functions
+license = MIT
+copyright = 2022
+
+repo = https://github.com/bpan-org/bashplus
+branch = main
+site = $package.repo
+bug = $package.repo/issues/
+irc = irc.libera.chat/bpan
+
+[author]
+name = Ingy döt Net
+email = ingy@ingy.net
+github = ingydotnet
+twitter = ingydotnet
+irc = ingy@irc.libera.chat
+matrix = @ingy:yaml.io
+site = http://ingy.net
+
+[owner]
+github = ingydotnet
+
+[update]
+file = License
+file = Makefile
+file = ReadMe.md doc/bashplus.md
+file = test/00-shellcheck.t
+file = test/init
+man3 = doc/bashplus.md
+
+# vim: ft=gitconfig:
