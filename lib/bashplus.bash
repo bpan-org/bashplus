@@ -48,7 +48,8 @@ bashplus:version() (
     printf '%s\n' "$@" >&2
     echo -en "$Z"
 
-    if [[ $# -ne 1 || $1 != *$'\n' ]]; then
+    # If last msg line 
+    if [[ $# -ne 1 || ${!#} != *$'\n' ]]; then
       local caller
       IFS=' ' read -r -a caller <<< "$(caller "$level")"
       if (( ${#caller[@]} == 2 )); then
