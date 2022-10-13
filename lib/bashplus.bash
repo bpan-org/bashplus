@@ -5,7 +5,7 @@
 
 
 bashplus:version() (
-  VERSION=0.1.28
+  VERSION=0.1.29
   echo "$VERSION"
 )
 

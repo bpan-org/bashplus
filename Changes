@@ -1,3 +1,7 @@
+[version "0.1.29"]
+date = Thu Oct 13 09:16:41 AM PDT 2022
+done = Newline one last die msg line disables line #
+
 [version "0.1.28"]
 date = Wed Oct  5 07:58:51 PM PDT 2022
 done = Fix .bpan/config symlink
