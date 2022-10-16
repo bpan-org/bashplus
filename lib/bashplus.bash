@@ -48,8 +48,8 @@ bashplus:version() (
     printf '%s\n' "$@" >&2
     echo -en "$Z"
 
-    # If last msg line 
-    if [[ $# -ne 1 || ${!#} != *$'\n' ]]; then
+    # If last msg line does not end with newline, then print line number:
+    if [[ ${!#} != *$'\n' ]]; then
       local caller
       IFS=' ' read -r -a caller <<< "$(caller "$level")"
       if (( ${#caller[@]} == 2 )); then
