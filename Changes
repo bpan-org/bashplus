@@ -1,3 +1,7 @@
+[version "0.1.31"]
+date = Mon Oct 17 09:11:17 PM PDT 2022
+done = Reformat bashplus:version function
+
 [version "0.1.30"]
 date = Sat Oct 15 05:59:01 PM PDT 2022
 done = Fix whether to print line # for die message
