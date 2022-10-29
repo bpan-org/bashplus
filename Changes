@@ -1,3 +1,8 @@
+[version "0.1.32"]
+date = Sat Oct 29 12:02:46 PM PDT 2022
+done = Add timer functions
+done = Add +source and +wrap functions
+
 [version "0.1.31"]
 date = Mon Oct 17 09:11:17 PM PDT 2022
 done = Reformat bashplus:version function
