@@ -315,35 +315,42 @@ fi
 
 if [[ ${EPOCHREALTIME-} != "${EPOCHREALTIME-}" ]]; then
   _bashplus_timer=${EPOCHREALTIME/./}
+
   +timer() {
-    echo "${1:+$1 }$(( ${EPOCHREALTIME/./} - _bashplus_timer ))"
+    echo "$(( ${EPOCHREALTIME/./} - _bashplus_timer ))"
   }
 
-  +timer-reset() {
-    echo "${1:+$1 }$(( ${EPOCHREALTIME/./} - _bashplus_timer ))"
-    _bashplus_timer=${EPOCHREALTIME/./}
+  +timer-printf() {
+    local format=${1?}; shift
+    local time=$(( ${EPOCHREALTIME/./} - _bashplus_timer ))
+    local seconds=$((time / 1000000))
+    local string
+    string=$(printf "%.6d" "$time")
+    local microseconds=${string: -6}
+    printf "$format\n" "$seconds.$microseconds" >&2
   }
 
-  +timer-start() { _bashplus_timer=${EPOCHREALTIME/./}; }
+  +timer-reset() { _bashplus_timer=${EPOCHREALTIME/./}; }
 
   +timer-wrap() {
-    local fun=$1; shift
-    local anon=$(+sym)
-    eval "
-      $anon() (
-        +timer-start
-        ::function::
-        +timer $*
-      )
-    "
-    +fun-wrap "$anon" "$fun"
-    unset -f "$anon"
+    for fun; do
+      label=${timer_label:-"$(printf '%-20s' "$fun") -> %ss"}
+      eval "
+        +timer-wrapper() (
+          +timer-reset
+          ::function::
+          +timer-printf '$label'
+        )
+      "
+      +fun-wrap +timer-wrapper "$fun"
+    done
+    unset -f +timer-wrapper
   }
 else
-  +timer()       { die "'+timer' only works for Bash 5.0+"; }
-  +timer-reset() { die "'+timer-split' only works for Bash 5.0+"; }
-  +timer-start() { die "'+timer-start' only works for Bash 5.0+"; }
-  +timer-wrap()  { die "'+timer-wrap' only works for Bash 5.0+"; }
+  +timer()        { die "'+timer' only works for Bash 5.0+"; }
+  +timer-printf() { die "'+timer-label' only works for Bash 5.0+"; }
+  +timer-reset()  { die "'+timer-reset' only works for Bash 5.0+"; }
+  +timer-wrap()   { die "'+timer-wrap' only works for Bash 5.0+"; }
 fi
 
 # Allow multiple traps to be performed.
