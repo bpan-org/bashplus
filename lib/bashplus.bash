@@ -4,7 +4,7 @@
 # * Many are improved versions of existing builtins/commands.
 
 
-bashplus:version() ( echo '0.1.31' )
+bashplus:version() ( echo '0.1.32' )
 
 
 # Define these first for use within:
@@ -65,15 +65,18 @@ bashplus:version() ( echo '0.1.31' )
 
   # Check if name is a callable function or command.
   +can() {
-    +is-func "${1:?+can requires a function name}" || +is-cmd "$1"
+    +is-fun "${1:?+can requires a function name}" || +is-cmd "$1"
   }
 
   # Check if a name is a command.
   +is-cmd() [[ $(command -v "${1:?+is-cmd requires a command name}") ]]
 
   # Check if name is a function.
-  +is-func() [[
-    $(type -t "${1:?+is-func requires a function name}") == function ]]
+  +is-fun() [[
+    $(type -t "${1:?+is-fun requires a function name}") == function ]]
+
+  # Deprecated
+  +is-func() { +is-fun "$@"; }
 
   # OS type checks:
   +os-linux() [[ $OSTYPE == linux* ]]
@@ -82,19 +85,13 @@ bashplus:version() ( echo '0.1.31' )
 
 # NOTE: BashPlus functions defined in name order.
 
-# Functions to redirect stdout and stderr.
-+1:x() { "$@" 1>/dev/null; }
-+2:1() { "$@" 2>&1;        }
-+2:x() { "$@" 2>/dev/null; }
-+o:x() { "$@" &>/dev/null; }
-
 # Functions to assert that commands are available.
 +assert-cmd() ( +is-cmd "$@" ||
   +error "Command '$1' is required" )
 +assert-cmd-ver() ( +is-cmd-ver "$@" ||
   +error "Command '$1' version '$2' or higher is required" )
 +assert-perl() ( +assert-cmd-ver perl ${1:-5.10.1} )
-+assert-git()  ( +assert-cmd-ver git  ${1:-2.7}    )
++assert-git()  ( +assert-cmd-ver git  ${1:-2.9}    )
 +assert-sed()  ( +assert-cmd     sed               )
 
 # Get the absolute path of a dirname
@@ -111,6 +108,38 @@ bashplus:version() ( echo '0.1.31' )
 
 # Red die with 'Error: ' prefix
 +error() { die --red "Error: $1"; }
+
+# Make a function anonymous
++fun-anon() {
+  local fun=${1?}
+  local var=${2?}
+  local anon
+  anon=$(+sym)
+  +fun-copy "$fun" "$(+sym)"
+  unset -f "$fun"
+  printf -v "$var" '%s' "$anon"
+}
+
+# A function that wraps functions with other functions:
++fun-copy() {
+  local code
+  code=$(type "${1?}")
+  eval "${2?}${code#$1 is a function$'\n'$1}"
+}
+
+# A function that wraps functions with other functions:
++fun-wrap() {
+  local func_name func_code wrap_name wrap_code anon_name anon_code
+  wrap_name=${1?}; shift
+  wrap_code=$(type "$wrap_name")
+  for func_name; do
+    anon_name=$(+sym)
+    func_code=$(type "$func_name")
+    func_code=$anon_name${func_code#$func_name is a function$'\n'$func_name}
+    anon_code=$func_name${wrap_code#$wrap_name is a function$'\n'$wrap_name}
+    eval "${anon_code/::function::/$func_code$'\n'$anon_name' "$@"'}"
+  done
+}
 
 # Check the current Bash is a minimal version.
 +is-bash32+() ( shopt -s compat31 2>/dev/null )
@@ -284,6 +313,39 @@ fi
 # Get current time in epoch seconds
 +time() ( date +%s )
 
+if [[ ${EPOCHREALTIME-} != "${EPOCHREALTIME-}" ]]; then
+  _bashplus_timer=${EPOCHREALTIME/./}
+  +timer() {
+    echo "${1:+$1 }$(( ${EPOCHREALTIME/./} - _bashplus_timer ))"
+  }
+
+  +timer-reset() {
+    echo "${1:+$1 }$(( ${EPOCHREALTIME/./} - _bashplus_timer ))"
+    _bashplus_timer=${EPOCHREALTIME/./}
+  }
+
+  +timer-start() { _bashplus_timer=${EPOCHREALTIME/./}; }
+
+  +timer-wrap() {
+    local fun=$1; shift
+    local anon=$(+sym)
+    eval "
+      $anon() (
+        +timer-start
+        ::function::
+        +timer $*
+      )
+    "
+    +fun-wrap "$anon" "$fun"
+    unset -f "$anon"
+  }
+else
+  +timer()       { die "'+timer' only works for Bash 5.0+"; }
+  +timer-reset() { die "'+timer-split' only works for Bash 5.0+"; }
+  +timer-start() { die "'+timer-start' only works for Bash 5.0+"; }
+  +timer-wrap()  { die "'+timer-wrap' only works for Bash 5.0+"; }
+fi
+
 # Allow multiple traps to be performed.
 +trap() {
   code=$1
@@ -321,17 +383,3 @@ fi
   (( v1[1] > v2[1] )) ||
   (( v1[2] > v2[2] ))
 )
-
-# A function that wraps functions with other functions:
-+wrap() {
-  local func_name func_code wrap_name wrap_code anon_name anon_code
-  wrap_name=${1?}; shift
-  wrap_code=$(type "$wrap_name")
-  for func_name; do
-    anon_name=$(+sym)
-    func_code=$(type "$func_name")
-    func_code=$anon_name${func_code#$func_name is a function$'\n'$func_name}
-    anon_code=$func_name${wrap_code#$wrap_name is a function$'\n'$wrap_name}
-    eval "${anon_code/::function::/$func_code$'\n'$anon_name' "$@"'}"
-  done
-}
