@@ -4,8 +4,6 @@
 
 source test/init
 
-source bashplus.bash
-
 foo() {
   x=$1
   echo helloooooooooooo >&2

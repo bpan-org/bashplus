@@ -222,6 +222,18 @@ fi
 # Sort in true ascii order.
 +sort() ( LC_ALL=C sort "$@" )
 
+# Source a name like 'foo' or 'foo/bar':
++source() {
+  local lib=${1?}; shift
+  local path
+  while read -r path; do
+    if [[ -f $path/$lib.bash ]]; then
+      source "$path/$lib.bash" "$@"
+      break
+    fi
+  done < <(IFS=':'; printf '%s\n' $PATH)
+}
+
 # Generate a unique symbol by joining a prefix (default is 'sym') to a random
 # string, separated by an underscore (`_`) character.
 # Useful for unique variable and function names.
@@ -309,3 +321,17 @@ fi
   (( v1[1] > v2[1] )) ||
   (( v1[2] > v2[2] ))
 )
+
+# A function that wraps functions with other functions:
++wrap() {
+  local func_name func_code wrap_name wrap_code anon_name anon_code
+  wrap_name=${1?}; shift
+  wrap_code=$(type "$wrap_name")
+  for func_name; do
+    anon_name=$(+sym)
+    func_code=$(type "$func_name")
+    func_code=$anon_name${func_code#$func_name is a function$'\n'$func_name}
+    anon_code=$func_name${wrap_code#$wrap_name is a function$'\n'$wrap_name}
+    eval "${anon_code/::function::/$func_code$'\n'$anon_name' "$@"'}"
+  done
+}

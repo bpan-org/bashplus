@@ -2,8 +2,6 @@
 
 source test/init
 
-source bashplus.bash
-
 if +is-cmd git; then
   ok "$(+assert-git)" \
     "'+assert-git' works"

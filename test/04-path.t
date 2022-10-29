@@ -2,8 +2,6 @@
 
 source test/init
 
-source bashplus.bash
-
 path=$PATH
 
 +path /foo /bar

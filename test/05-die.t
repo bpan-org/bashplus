@@ -2,8 +2,6 @@
 
 source test/init
 
-source bashplus.bash
-
 try 'die "foo foo"'
 
 is "$rc" 1 \

@@ -2,8 +2,6 @@
 
 source test/init
 
-source bashplus.bash
-
 ok "$(+version-gt 1.3 1.2.2)" \
   "'+version-gt' works"
 
