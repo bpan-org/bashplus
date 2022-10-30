@@ -1,3 +1,7 @@
+[version "0.1.36"]
+date = Sat Oct 29 09:21:42 PM PDT 2022
+done = Add sub-library bashplus/git.bash
+
 [version "0.1.35"]
 date = Sat Oct 29 03:48:09 PM PDT 2022
 done = Renumber tests
