@@ -30,9 +30,11 @@ die() {
   set -- "${args[@]}"
   [[ $# -gt 0 ]] || set -- Died
 
-  echo -en "$R"
-  printf '%s\n' "$@" >&2
-  echo -en "$Z"
+  (
+    echo -en "$R"
+    printf '%s\n' "$@"
+    echo -en "$Z"
+  ) >&2
 
   # If last msg line does not end with newline, then print line number:
   if [[ ${!#} != *$'\n' ]]; then
@@ -58,7 +60,7 @@ error() {
     msg="Error: $1"
   fi
   shift
-  die --red "$msg" "$@"
+  die --red --level=1 "$msg" "$@"
 }
 
 # Allow multiple traps to be performed.
