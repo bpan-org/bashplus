@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 source test/init
+source lib/bashplus.bash --sym --err
 
 temp=$(mktemp -d)
 +trap "rm -fr '$temp'"

@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
 source test/init
-
-+source bashplus/git
+source lib/bashplus.bash --git
 
 ok "$(+git:in-repo)" \
   "+git:in-repo works"

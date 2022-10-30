@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 
 source test/init
+source lib/bashplus.bash --fun
 
 hello() ( echo Hello )
 goodbye() ( echo Goodbye )
 wrapper() ( echo 1; ::function::; echo 2 )
 
-+fun-wrap wrapper hello goodbye
++fun:wrap wrapper hello goodbye
 
 is "$(hello; goodbye)" "\
 1
@@ -20,14 +21,14 @@ Goodbye
 
 f1() { pass "Test in function ${FUNCNAME[0]}"; }
 f1
-+fun-copy f1 f2
++fun:copy f1 f2
 f2
 
 
-+fun-anon f1 var1
++fun:anon f1 var1
 ok "$([[ $var1 =~ sym_.{10,} ]])" \
   "+fun-anon set var1 to '$var1'"
-ok "$(! +is-func f1)" \
+ok "$(! +fun:ok f1)" \
   "f1 is no longer a function"
 
 
