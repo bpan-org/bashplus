@@ -49,7 +49,7 @@ die() {
 }
 
 # Red die with 'Error: ' prefix
-+error() {
+error() {
   set +x
   local msg
   if [[ ${app-} && $app =~ ^[-a-z0-9]+$ ]]; then

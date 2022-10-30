@@ -3,9 +3,9 @@
 
 # Functions to assert that commands are available.
 +cmd:assert() ( +is-cmd "$@" ||
-  +error "Command '$1' is required" )
+  error "Command '$1' is required" )
 +cmd:assert-ver() ( +cmd:ok-ver "$@" ||
-  +error "Command '$1' version '$2' or higher is required" )
+  error "Command '$1' version '$2' or higher is required" )
 
 # Assert stable versions of heavily used commands:
 +cmd:assert-perl() ( +cmd:assert-ver perl ${1:-5.10.1} )
