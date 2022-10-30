@@ -1,3 +1,7 @@
+[version "0.1.43"]
+date = Sun Oct 30 01:25:20 PM PDT 2022
+done = Fix a wording bug in the 'error' function
+
 [version "0.1.42"]
 date = Sun Oct 30 01:13:23 PM PDT 2022
 done = Fix bugs in 'error' function from refactor
