@@ -55,7 +55,7 @@ error() {
   set +x
   local msg
   if [[ ${app-} && $app =~ ^[-a-z0-9]+$ ]]; then
-    msg="Error [$app]: $1"
+    msg="[$app] Error: $1"
   else
     msg="Error: $1"
   fi
