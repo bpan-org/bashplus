@@ -1,0 +1,4 @@
+# Needed for +cmd-ok-ver by test/00-shellcheck.t
+# XXX should add that function to test-tap
+
+source lib/bashplus.bash --cmd

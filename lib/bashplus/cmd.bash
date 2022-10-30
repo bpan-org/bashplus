@@ -4,7 +4,7 @@
 # Functions to assert that commands are available.
 +cmd:assert() ( +is-cmd "$@" ||
   +error "Command '$1' is required" )
-+cmd:assert-ver() ( +cmd:is-ver "$@" ||
++cmd:assert-ver() ( +cmd:ok-ver "$@" ||
   +error "Command '$1' version '$2' or higher is required" )
 
 # Assert stable versions of heavily used commands:
@@ -12,7 +12,7 @@
 +cmd:assert-git()  ( +cmd:assert-ver git  ${1:-2.9}    )
 
 # Check if command exists and is at or above a version.
-+cmd:is-ver() (
++cmd:ok-ver() (
   command=$1 version=$2
 
   out=$("$command" --version 2>/dev/null) ||

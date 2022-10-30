@@ -39,7 +39,7 @@ say() (
 )
 
 +say:color() (
-  set +x
+  set -x
   ${option_quiet:-false} && return
 
   color=$1; shift

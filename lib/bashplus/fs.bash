@@ -24,7 +24,7 @@
 
 # Check if 2 files are the same or different.
 +fs:file-same() ( diff -q "$1" "$2" &>/dev/null )
-+fs:file-diff() ( ! +is-file-same "$@" )
++fs:file-diff() ( ! +fs:file-same "$@" )
 
 # mktemp files and dirs that automatically get deleted at end of scope.
 +fs:mktemp() {
@@ -38,7 +38,7 @@
 }
 
 # Get file modification time in epoch seconds
-if +os-macos; then
+if [[ $OSTYPE == darwin* ]]; then
   +fs:mtime() ( stat -f %m "$1" )
 else
   +fs:mtime() ( stat -c %Y "$1" )

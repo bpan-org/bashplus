@@ -52,6 +52,7 @@ bashplus:main() {
 # A simple 'die' function. Full featured version is in lib/bashplus/err.bash
 die() {
   set +x
+  [[ $# -gt 0 ]] || set -- Died
   warn "$@"
   exit 1
 }
