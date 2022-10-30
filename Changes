@@ -1,3 +1,8 @@
+[version "0.1.37"]
+date = Sun Oct 30 09:51:25 AM PDT 2022
+done = Break up bashplus into smaller sub libraries
+done = Add +say in lib/bashplus/say.bash
+
 [version "0.1.36"]
 date = Sat Oct 29 09:21:42 PM PDT 2022
 done = Add sub-library bashplus/git.bash
