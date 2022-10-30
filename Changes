@@ -1,3 +1,7 @@
+[version "0.1.41"]
+date = Sun Oct 30 12:56:01 PM PDT 2022
+done = A couple more refactoring bugs fixed
+
 [version "0.1.40"]
 date = Sun Oct 30 11:48:55 AM PDT 2022
 done = Another refactoring bug fix
