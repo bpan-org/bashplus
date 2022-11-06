@@ -1,3 +1,7 @@
+[version "0.1.46"]
+date = Sun Nov  6 11:33:43 AM PST 2022
+done = Support BASHPLUS_DEBUG_BASH_X
+
 [version "0.1.45"]
 date = Wed Nov  2 03:01:23 PM PDT 2022
 done = Implement +stack-trace and use in die and error
