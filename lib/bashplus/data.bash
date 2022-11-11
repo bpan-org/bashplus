@@ -1,5 +1,5 @@
 # Size of list:
-+l:count() ( echo $# )
++l:count() { echo $#; }
 
 # Apply a function to each elem in a list:
 +l:each() {
@@ -13,11 +13,12 @@
 }
 
 # Reverse a list:
-+l:reverse() (
++l:reverse() {
+  local i
   for (( i = $#; i > 0; i-- )); do
     echo "${!i}"
   done
-)
+}
 
 # Sort in true ascii order.
 +l:sort() {

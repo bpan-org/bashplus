@@ -16,7 +16,7 @@
   $(type -t "${1:?+sys:func requires a function name}") == function ]]
 
 # Check if internet is reachable.
-+sys:online() ( ping -q -c1 8.8.8.8 &>/dev/null )
++sys:online() { ping -q -c1 8.8.8.8 &>/dev/null; }
 
 # OS type checks:
 +sys:is-linux() [[ $OSTYPE == linux* ]]
