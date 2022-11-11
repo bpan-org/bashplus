@@ -1,3 +1,7 @@
+[version "0.1.51"]
+date = Fri Nov 11 10:07:03 AM PST 2022
+done = Change source bashplus --foo to +foo
+
 [version "0.1.50"]
 date = Fri Nov 11 06:46:32 AM PST 2022
 done = Avoid unnecessary subshell functions
