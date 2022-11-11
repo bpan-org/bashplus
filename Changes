@@ -1,3 +1,9 @@
+[version "0.1.48"]
+date = Fri Nov 11 05:52:08 AM PST 2022
+done = Add a +time:stamp function
+done = Rename bashplus/fun to bashplus/func
+done = Add ::FUNC-NAME:: support to bashplus/fun
+
 [version "0.1.47"]
 date = Wed Nov  9 10:03:54 AM PST 2022
 done = Add +time:ymd for yyyy-mm-dd date string
