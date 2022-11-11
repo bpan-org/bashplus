@@ -27,7 +27,7 @@ f2
 
 +func:anon f1 var1
 ok "$([[ $var1 =~ sym_.{10,} ]])" \
-  "+fun-anon set var1 to '$var1'"
+  "+func-anon set var1 to '$var1'"
 ok "$(! +func:ok f1)" \
   "f1 is no longer a function"
 

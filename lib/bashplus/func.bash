@@ -6,12 +6,12 @@
 
 # Make a function anonymous
 +func:anon() {
-  local fun=${1?}
+  local func=${1?}
   local var=${2?}
   local anon
   anon=$(+sym)
-  +func:copy "$fun" "$(+sym)"
-  unset -f "$fun"
+  +func:copy "$func" "$(+sym)"
+  unset -f "$func"
   printf -v "$var" '%s' "$anon"
 }
 

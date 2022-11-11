@@ -19,9 +19,9 @@ if [[ ${EPOCHREALTIME-} != "${EPOCHREALTIME-}" ]]; then
   +timer:reset() { _bashplus_timer=${EPOCHREALTIME/./}; }
 
   +timer:wrap() {
-    +can +func:wrap || +source bashplus/fun
-    for fun; do
-      label=${timer_label:-"$(printf '%-20s' "$fun") -> %ss"}
+    +can +func:wrap || +source bashplus/func
+    for func; do
+      label=${timer_label:-"$(printf '%-20s' "$func") -> %ss"}
       eval "
         +timer:wrapper() {
           +timer:reset
@@ -29,7 +29,7 @@ if [[ ${EPOCHREALTIME-} != "${EPOCHREALTIME-}" ]]; then
           +timer:printf '$label'
         }
       "
-      +func:wrap +timer:wrapper "$fun"
+      +func:wrap +timer:wrapper "$func"
     done
     unset -f +timer:wrapper
   }

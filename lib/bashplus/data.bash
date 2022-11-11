@@ -3,12 +3,12 @@
 
 # Apply a function to each elem in a list:
 +l:each() {
-  local fun=${1?}; shift
-  +can "$fun" ||
-    die "'$fun' is not a function or command"
+  local func=${1?}; shift
+  +can "$func" ||
+    die "'$func' is not a function or command"
   local elem
   for elem; do
-    "$fun" "$elem"
+    "$func" "$elem"
   done
 }
 
