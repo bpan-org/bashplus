@@ -1,3 +1,7 @@
+[version "0.1.50"]
+date = Fri Nov 11 06:46:32 AM PST 2022
+done = Avoid unnecessary subshell functions
+
 [version "0.1.49"]
 date = Fri Nov 11 06:18:11 AM PST 2022
 done = Finish fun -> func refactor
