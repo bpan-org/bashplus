@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 source test/init
-source lib/bashplus.bash --timer --fun
+source lib/bashplus.bash --timer --func
 
 [[ ${EPOCHREALTIME-} != "${EPOCHREALTIME-}" ]] ||
   plan skip-all "Test requires Bash 5.0+"
@@ -13,14 +13,14 @@ is "$(( t / 10000 ))" 1 \
   "+timer time is just over 10000ms"
 
 f1() ( sleep .01 )
-+fun:copy f1 f2
++func:copy f1 f2
 
 _() (
   +timer:reset
   ::FUNC-CALL::
   +timer
 )
-+fun:wrap _ f1
++func:wrap _ f1
 
 t=$(f1)
 

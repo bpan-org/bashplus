@@ -1,29 +1,29 @@
 +source bashplus/sym
 
 # Check if name is a function.
-+fun:ok() [[
-  $(type -t "${1:?+fun:ok requires a function name}") == function ]]
++func:ok() [[
+  $(type -t "${1:?+func:ok requires a function name}") == function ]]
 
 # Make a function anonymous
-+fun:anon() {
++func:anon() {
   local fun=${1?}
   local var=${2?}
   local anon
   anon=$(+sym)
-  +fun:copy "$fun" "$(+sym)"
+  +func:copy "$fun" "$(+sym)"
   unset -f "$fun"
   printf -v "$var" '%s' "$anon"
 }
 
 # A function that wraps functions with other functions:
-+fun:copy() {
++func:copy() {
   local code
   code=$(type "${1?}")
   eval "${2?}${code#$1 is a function$'\n'$1}"
 }
 
 # A function that wraps functions with other functions:
-+fun:wrap() {
++func:wrap() {
   local func_name func_code wrap_name wrap_code anon_name anon_code
   wrap_name=${1?}; shift
   wrap_code=$(type "$wrap_name")
