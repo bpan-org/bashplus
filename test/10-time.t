@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 source test/init
-source lib/bashplus.bash --time
+source lib/bashplus.bash +time
 
 d='[0-9]'
 d2='[0-9]{2}'

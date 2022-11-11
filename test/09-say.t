@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 source test/init
-source lib/bashplus.bash --say
+source lib/bashplus.bash +say
 
 is "$(+say 'foo bar')" 'foo bar' \
   "+say prints to stdout"

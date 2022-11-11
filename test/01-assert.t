@@ -2,7 +2,7 @@
 
 source test/init
 
-source bashplus.bash --cmd
+source bashplus.bash +cmd
 
 if +cmd:ok git; then
   ok "$(+cmd:assert-git)" \

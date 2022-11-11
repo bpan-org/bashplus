@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 source test/init
-source lib/bashplus.bash --timer --func
+source lib/bashplus.bash +timer +func
 
 [[ ${EPOCHREALTIME-} != "${EPOCHREALTIME-}" ]] ||
   plan skip-all "Test requires Bash 5.0+"

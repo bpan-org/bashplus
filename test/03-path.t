@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 source test/init
-source lib/bashplus.bash --env
+source lib/bashplus.bash +env
 
 path=$PATH
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 source test/init
-source lib/bashplus.bash --func
+source lib/bashplus.bash +func
 
 hello() ( echo Hello )
 goodbye() ( echo Goodbye )

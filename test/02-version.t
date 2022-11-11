@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 source test/init
-source lib/bashplus.bash --version
+source lib/bashplus.bash +version
 
 ok "$(+version:gt 1.3 1.2.2)" \
   "'+version-gt' works"

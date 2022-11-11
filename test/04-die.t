@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 source test/init
-source lib/bashplus.bash --err
+source lib/bashplus.bash +err
 
 try 'die "foo foo"'
 
