@@ -25,7 +25,7 @@ if [[ ${EPOCHREALTIME-} != "${EPOCHREALTIME-}" ]]; then
       eval "
         +timer:wrapper() {
           +timer:reset
-          ::function::
+          ::FUNC-CALL::
           +timer:printf '$label'
         }
       "

@@ -5,7 +5,7 @@ source lib/bashplus.bash --fun
 
 hello() ( echo Hello )
 goodbye() ( echo Goodbye )
-wrapper() ( echo 1; ::function::; echo 2 )
+wrapper() ( echo 1; ::FUNC-CALL::; echo 2 )
 
 +fun:wrap wrapper hello goodbye
 
@@ -31,6 +31,12 @@ ok "$([[ $var1 =~ sym_.{10,} ]])" \
 ok "$(! +fun:ok f1)" \
   "f1 is no longer a function"
 
+-() ( echo "Called ::FUNC-NAME::" )
+foo() (:)
++fun:wrap - foo
+
+is "$(foo)" "Called foo" \
+  "+fun:wrap with '::FUNC-NAME::' works"
 
 done-testing
 

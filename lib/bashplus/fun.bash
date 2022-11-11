@@ -33,6 +33,8 @@
     func_code=$anon_name${func_code#$func_name is a function$'\n'$func_name}
     anon_code=$func_name${wrap_code#$wrap_name is a function$'\n'$wrap_name}
     anon_call=$func_code$'\n'$anon_name' "$@"'
-    eval "${anon_code/::function::/$anon_call}"
+    anon_code=${anon_code/::FUNC-CALL::/$anon_call}
+    anon_code=${anon_code/::FUNC-NAME::/$func_name}
+    eval "$anon_code"
   done
 }

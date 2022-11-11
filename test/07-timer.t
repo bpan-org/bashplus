@@ -17,7 +17,7 @@ f1() ( sleep .01 )
 
 _() (
   +timer:reset
-  ::function::
+  ::FUNC-CALL::
   +timer
 )
 +fun:wrap _ f1
