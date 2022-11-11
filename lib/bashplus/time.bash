@@ -7,7 +7,9 @@ else
 fi
 
 if ( shopt -s compat41 2>/dev/null ); then
-  +time:ymd() ( printf '%(%Y-%m-%d)T\n' -1 )
+  +time:stamp() { printf '%(%Y-%m-%d-%H-%M-%S)T\n' -1; }
+  +time:ymd() { printf '%(%Y-%m-%d)T\n' -1; }
 else
-  +time:ymd() ( date '+%Y-%m-%d' )
+  +time:stamp() { date '+%Y-%m-%d-%H-%M-%S'; }
+  +time:ymd() { date '+%Y-%m-%d'; }
 fi
