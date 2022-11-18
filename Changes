@@ -1,3 +1,7 @@
+[version "0.1.54"]
+date = Thu Nov 17 09:58:40 PM PST 2022
+done = Add tag to Meta
+
 [version "0.1.53"]
 date = Thu Nov 17 09:56:16 PM PST 2022
 done = New BPAN config format
