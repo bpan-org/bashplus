@@ -1,3 +1,7 @@
+[version "0.1.53"]
+date = Thu Nov 17 09:56:16 PM PST 2022
+done = New BPAN config format
+
 [version "0.1.52"]
 date = Thu Nov 17 09:46:18 PM PST 2022
 done = Allow optional 2nd arg 'remote' for +git:tag-pushed
