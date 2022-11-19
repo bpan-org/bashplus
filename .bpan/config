@@ -3,7 +3,7 @@ version = 0.1.82
 
 [package]
 name = bashplus
-version = 0.1.55
+version = 0.1.56
 title = A Collection of Useful Bash Functions
 license = MIT
 copyright = 2022
