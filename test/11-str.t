@@ -6,16 +6,20 @@ source lib/bashplus.bash +str
 
 str='   foo   bar   baz   '
 
-is "$(+str:ltrim "$str")" \
-   'foo   bar   baz   ' \
-   '+str:ltrim works'
-
-is "$(+str:rtrim "$str")" \
-   '   foo   bar   baz' \
-   '+str:rtrim works'
+is "$(+str:repeat foo 3)" \
+  'foofoofoo' \
+   '+str:repeat works'
 
 is "$(+str:trim "$str")" \
    'foo   bar   baz' \
    '+str:trim works'
+
+is "$(+str:trim-left "$str")" \
+   'foo   bar   baz   ' \
+   '+str:trim-left works'
+
+is "$(+str:trim-right "$str")" \
+   '   foo   bar   baz' \
+   '+str:trim-right works'
 
 done-testing
