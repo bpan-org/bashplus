@@ -1,3 +1,7 @@
+[version "0.1.57"]
+date = Sun Nov 20 12:35:35 PM PST 2022
+done = Limit +source to BASHPLUS_PATH or local .bpan/lib
+
 [version "0.1.56"]
 date = Sat Nov 19 10:53:26 AM PST 2022
 done = Add +str:repeat
