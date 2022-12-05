@@ -1,3 +1,7 @@
+[version "0.1.58"]
+date = Mon Dec  5 10:49:25 AM PST 2022
+done = Change package.repo to package.owner
+
 [version "0.1.57"]
 date = Sun Nov 20 12:35:35 PM PST 2022
 done = Limit +source to BASHPLUS_PATH or local .bpan/lib
