@@ -17,7 +17,7 @@ site = $package.source
 bug = $package.source/issues/
 irc = irc.libera.chat/bpan
 
-[author "ingydotnet"]
+[author "github:ingydotnet"]
 name = Ingy döt Net
 email = ingy@ingy.net
 host = github
