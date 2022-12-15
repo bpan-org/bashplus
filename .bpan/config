@@ -1,6 +1,6 @@
 [bpan]
-version = 0.1.96
-updated = 2022-12-12-01-38-57
+version = 0.1.100
+updated = 2022-12-15T09:43:24Z
 
 [package]
 name = bashplus
