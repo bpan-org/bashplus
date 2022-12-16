@@ -1,3 +1,7 @@
+[version "0.1.63"]
+date = 2022-12-15T19:18:47Z
+done = Add type to .bpan/config
+
 [version "0.1.62"]
 date = 2022-12-15T09:50:56Z
 done = Fix +time:stamp to use iso8601 'z' format
