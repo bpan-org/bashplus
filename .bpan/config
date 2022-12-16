@@ -8,7 +8,7 @@ version = 0.1.62
 title = A Collection of Useful Bash Functions
 license = MIT
 copyright = 2022
-tag = bash plus
+type = bash-lib
 
 bug = https://github.com/bpan-org/bashplus/issues/
 irc = irc.libera.chat/bpan
