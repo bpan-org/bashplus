@@ -1,3 +1,7 @@
+[version "0.1.67"]
+date = 2022-12-21T18:58:12Z
+done = Add +func:list support
+
 [version "0.1.66"]
 date = 2022-12-21T18:44:14Z
 done = Revert "Make +time:stamp be UTC"
