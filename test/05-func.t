@@ -7,6 +7,12 @@ hello() ( echo Hello )
 goodbye() ( echo Goodbye )
 wrapper() ( echo 1; ::FUNC-CALL::; echo 2 )
 
+ok "$([[ $(+func:list) == *hello* ]])" \
+  "'hello' is in +func:list"
+
+ok "$([[ $(+func:list ^hell) == hello ]])" \
+  "'+func:list ^hell' -> 'hello'"
+
 +func:wrap wrapper hello goodbye
 
 is "$(hello; goodbye)" "\
@@ -16,7 +22,7 @@ Hello
 1
 Goodbye
 2" \
-  "+wrap works"
+  "+func:wrap works"
 
 
 f1() { pass "Test in function ${FUNCNAME[0]}"; }
