@@ -1,3 +1,7 @@
+[version "0.1.66"]
+date = 2022-12-21T18:44:14Z
+done = Revert "Make +time:stamp be UTC"
+
 [version "0.1.65"]
 date = 2022-12-21T18:12:16Z
 done = Remove BASHPLUS_DEBUG_BASH_X support
