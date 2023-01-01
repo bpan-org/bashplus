@@ -1,16 +1,15 @@
 [bpan]
-version = 0.1.105
-updated = 2022-12-30T17:26:20Z
+version = 0.1.106
+updated = 2023-01-01T12:19:26Z
 
 [package]
-name = bashplus
+id = github:bpan-org/bashplus
 version = 0.1.68
 title = A Collection of Useful Bash Functions
 license = MIT
-copyright = 2022
-type = bash-lib
+copyright = 2022-2023
+type = bash:lib
 
-bug = https://github.com/bpan-org/bashplus/issues/
 irc = irc.libera.chat/bpan
 
 [author "github:ingydotnet"]
